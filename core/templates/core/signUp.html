@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Página de Cadastro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/signUp-style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <form action="{% url 'sign_up' %}" method="POST">
+            {% csrf_token %}
+
+            <h2>Criar Conta</h2>
+            <label for="name">Nome completo:</label>
+            <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+            <label for="username">Nome de usuário:</label>
+            <input type="text" id="username" name="username" placeholder="Digite um nome de usuário" required>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" placeholder="Digite uma senha" required>
+            <label for="confirm-password">Confirmar senha:</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirme sua senha"
+                required>
+            <button type="submit">Cadastrar</button>
+            <p>Já tem uma conta? <a href="{% url 'sign_in' %}">Faça login aqui</a></p>
+        </form>
+    </div>
+</body>
+
+</html>
